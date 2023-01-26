@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit {{pet.name}}</h1>
+<div class="row mb-3">
+    <div class="col-md-6">
+        {% set missing_image = 'https://cdn-icons-png.flaticon.com/512/1152/1152483.png'%}
+        <img class="img-fluid" src="{{pet.photo_url or missing_image}}">
+    </div>
+    <div class="col-md-6">
+        <form action="/pets/{{pet.id}}" method="POST">
+            {% include "_form.html" %}
+        
+            <button class="btn btn-success">Edit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

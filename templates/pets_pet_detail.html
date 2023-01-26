@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{pet.name}}</h1>
+<div class="row mb-3">
+    <div class="col-md-6">
+        {% set missing_image = 'https://cdn-icons-png.flaticon.com/512/1152/1152483.png'%}
+        <img class="img-fluid" src="{{pet.photo_url or missing_image}}">
+    </div>
+    <div class="col-md-6">
+        <p class="display-6"><b>Species</b>: {{pet.species}}</p>
+        <p class="display-6"><b>Age</b>: {{pet.age}}</p>
+        <p class="display-6"><b>Notes</b>: {{pet.notes}}</p>
+        <p class="display-6"><b>Available</b>: {{'Yes' if pet.available else 'No'}}</p>
+    </div>
+</div>
+
+<a href='/pets/{{pet.id}}/edit' class="btn btn-success">Edit</a>
+{% endblock %}
